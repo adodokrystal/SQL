@@ -1,0 +1,51 @@
+Create table singers 
+(id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    stage_name TEXT,
+    real_name TEXT);
+    
+INSERT INTO singers (stage_name,real_name) VALUES ("Orion Sun","Tiffany Majette");
+INSERT INTO singers (stage_name,real_name) VALUES ("FKA twigs","Tahliah Barnett");
+INSERT INTO singers (stage_name,real_name) VALUES ("Ari Lennox","Courtney Salter");
+INSERT INTO singers (stage_name,real_name) VALUES ("Syd Tha Kyd","Sydney Bennett");
+INSERT INTO singers (stage_name,real_name) VALUES ("Tems","Temilade Openiyi");
+INSERT INTO singers (stage_name,real_name) VALUES ("Beyonce", "Beyonce Knowles-Carter");
+INSERT INTO singers (stage_name,real_name) VALUES ("Daniel Caesar","Ashton Simmonds");
+INSERT INTO singers (stage_name,real_name) VALUES ("Dijon","Dijon Duenas");
+INSERT INTO singers (stage_name,real_name) VALUES ("Doja Cat","Amala Dlamini");
+INSERT INTO singers (stage_name,real_name) VALUES ("Frank Ocean","Christopher Breaux");
+INSERT INTO singers (stage_name,real_name) VALUES ("Ms.Lauryn Hill", "Lauryn Hill");
+INSERT INTO singers (stage_name,real_name) VALUES ("Erykah Badu", "Erica Wright");
+INSERT INTO singers (stage_name,real_name) VALUES ("Kali Uchis", "Karly-Marina Loaiza");
+INSERT INTO singers (stage_name,real_name) VALUES ("Omar Apollo", "Omar Velasco");
+INSERT INTO singers (stage_name,real_name) VALUES ("Rihanna", "Robyn Fenty");
+
+
+Create table songs
+(id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    artist_id INTEGER,
+    title TEXT,
+    release_year INTEGER);
+
+INSERT INTO songs (artist_id,title,release_year) VALUES (1,"concrete",2022);
+INSERT INTO songs (artist_id,title,release_year) VALUES (2,"cellophane",2019);
+INSERT INTO songs (artist_id,title,release_year) VALUES (3,"Shea Butter",2019);
+INSERT INTO songs (artist_id,title,release_year) VALUES (4, "Dollar Bills",2017);
+INSERT INTO songs (artist_id,title,release_year) VALUES (5, "Higher", 2020);
+INSERT INTO songs (artist_id,title,release_year) VALUES (6, "Heated", 2022);
+INSERT INTO songs (artist_id,title,release_year) VALUES (7, "Superposition",2019);
+INSERT INTO songs (artist_id,title,release_year) VALUES (8, "Rodeo Clown", 2021);
+INSERT INTO songs (artist_id,title,release_year) VALUES (9, "Women", 2021);
+INSERT INTO songs (artist_id,title,release_year) VALUES (10, "White Ferrari", 2016);
+INSERT INTO songs (artist_id,title,release_year) VALUES (11, "Ex-Factor", 1998);
+INSERT INTO songs (artist_id,title,release_year) VALUES (12, "Sometimes", 1997);
+INSERT INTO songs (artist_id,title,release_year) VALUES (13, "Tomorrow", 2018);
+INSERT INTO songs (artist_id,title,release_year) VALUES (14, "Ugotme", 2018);
+INSERT INTO songs (artist_id,title,release_year) VALUES (15, "Higher",2016);
+
+
+SELECT * FROM singers;
+
+SELECT singers.stage_name, songs.title
+    FROM singers
+    JOIN songs
+    ON singers.id=songs.artist_id

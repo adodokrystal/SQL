@@ -1,0 +1,32 @@
+#For this project, I downloaded a file from a dataset called chinook, which represents a digital media store and includes tables for artists, albums, media tracks, invoices, and customers.
+#I came up with my own questions that I wanted to learn more about from the dataset.
+
+
+#Show customers that are from the United States.
+SELECT FirstName, LastName, CustomerID, Country
+FROM chinook.customers
+WHERE Country <> 'USA';
+
+#How many invoices were there in 2009?
+SELECT COUNT(*)
+FROM chinook.invoices
+WHERE InvoiceDate BETWEEN '01-01-2009' AND '12-31-2009';
+
+#Provide a query that shows the invoices associated with each sales agent.
+SELECT emp.LastName, emp.Firstname, inv.InvoiceId
+FROM chinook.Employees emp 
+JOIN chinook.Customers cust ON cust.SupportRepId = emp.EmployeeId
+JOIN chinook.Invoices Inv ON Inv.CustomerId = cust.CustomerId;
+
+#Provide a query that includes the purchased track name with each invoice line ID.
+SELECT t.Name, i.InvoiceLineId
+FROM chinook.Invoice_items i
+JOIN chinook.Tracks t 
+ON i.TrackId = t.TrackId;
+
+#Show employees who are Sales Agents.
+SELECT * FROM chinook.employees
+WHERE Title = "Sales Support Agent";
+
+#Find a distinct list of billing countries from the invoice table.
+SELECT DISTINCT BillingCountry FROM chinook.Invoices;
